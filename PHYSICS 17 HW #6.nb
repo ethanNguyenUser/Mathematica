@@ -1,0 +1,353 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14859,        343]
+NotebookOptionsPosition[     13834,        320]
+NotebookOutlinePosition[     14394,        338]
+CellTagsIndexPosition[     14351,        335]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pj", " ", "=", " ", 
+   RowBox[{"(", GridBox[{
+      {"4", "4", "1", "4", "16", "4", "4", "4", "1"}
+     }], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"n", " ", "=", " ", 
+   RowBox[{"(", GridBox[{
+      {"2", "2", "2", "2", "2", "2", "2", "2", "2", "1", "0", "0", "0", "1", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "2", "2", "0", "1", "0", "1", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "2", "2", "0", "0", "2", "0", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "2", "1", "2", "0", "0", "1", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "2", "1", "1", "1", "1", "0", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "1", "2", "2", "0", "1", "0", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "1", "2", "2", "2", "1", "0", "0", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "1", "2", "1", "2", "0", "0", "0", 
+       "0", "0", "0"},
+      {"2", "2", "2", "2", "2", "2", "2", "2", "0", "2", "2", "0", "0", "0", 
+       "0", "0", "0"}
+     }], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nParticles", " ", "=", " ", "20"}], ";"}], "\n", 
+ RowBox[{"\[CapitalOmega]", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"Accumulate", "[", 
+    RowBox[{"Transpose", "[", "pj", "]"}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"-", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"N", "[", 
+  RowBox[{"pj", " ", ".", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "n", "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"probs", " ", "=", " ", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"0", ",", " ", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Transpose", "[", "n", "]"}], "]"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+    RowBox[{"i", " ", "<=", " ", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Transpose", "[", "n", "]"}], "]"}]}], ",", " ", 
+    RowBox[{"i", "++"}], ",", " ", "\n", "\t", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"probs", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
+      RowBox[{
+       RowBox[{"N", "[", 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{"nParticles", " ", "\[CapitalOmega]"}]], 
+         RowBox[{"pj", " ", ".", " ", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{
+            RowBox[{"Transpose", "[", "n", "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}]}]}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";"}]}], "\n", "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  "\"\<Average Number of particles for energy levels 0-15:\>\"", 
+  "]"}], "\n", 
+ RowBox[{"nParticles", " ", "*", " ", "probs"}], "\n", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Range", "[", 
+       RowBox[{"Length", "[", "probs", "]"}], "]"}], ",", " ", 
+      RowBox[{"nParticles", " ", "*", " ", "probs"}]}], "}"}], "]"}], ",", 
+   " ", 
+   RowBox[{"PlotStyle", " ", "->", " ", 
+    RowBox[{"PointSize", "[", "0.02", "]"}]}], ",", " ", 
+   RowBox[{"Frame", " ", "->", " ", "True"}], ",", " ", "\n", "   ", 
+   RowBox[{"FrameLabel", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Energy Level\>\"", ",", " ", 
+      "\"\<Average Number of Particles\>\""}], "}"}]}], ",", " ", 
+   RowBox[{"GridLines", " ", "->", " ", "Automatic"}], ",", " ", "\n", "   ", 
+   
+   RowBox[{"GridLinesStyle", " ", "->", " ", "LightGray"}], ",", " ", 
+   RowBox[{
+   "PlotLabel", " ", "->", " ", 
+    "\"\<Average Number of Particles vs. Energy Levels\>\""}]}], 
+  "]"}]}], "Code",
+ CellChangeTimes->{
+  3.895312250441124*^9, {3.895312304478601*^9, 3.8953124797919893`*^9}, {
+   3.895312519012096*^9, 3.8953127682191153`*^9}, 3.89531283077269*^9, {
+   3.8953129436763783`*^9, 3.8953130336785097`*^9}, {3.895313080713361*^9, 
+   3.895313095552063*^9}, {3.8953132060378103`*^9, 3.895313231086671*^9}, {
+   3.8953132940074987`*^9, 3.895313389596251*^9}, {3.895313436797153*^9, 
+   3.895313554858693*^9}, {3.895313588399213*^9, 3.895313594554509*^9}, {
+   3.895313640436901*^9, 3.8953136681162653`*^9}, {3.895313733831049*^9, 
+   3.8953141157439547`*^9}, {3.895314163583651*^9, 3.895314205338934*^9}, {
+   3.895314261686949*^9, 3.895314271987485*^9}, 3.8953143308604727`*^9, {
+   3.8953144015459023`*^9, 3.895314433868751*^9}, {3.895320545717287*^9, 
+   3.895320603914097*^9}, {3.8953206380533743`*^9, 3.895320648516838*^9}, {
+   3.8953207271881447`*^9, 3.89532072739298*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"abe6f90d-5a2c-4fa4-8c56-f569e04b02cc"],
+
+Cell[BoxData[
+ RowBox[{"{", "42", "}"}]], "Output",
+ CellChangeTimes->{{3.895312833554242*^9, 3.8953128336832*^9}, {
+   3.895313013184683*^9, 3.8953130338863153`*^9}, {3.895313074254348*^9, 
+   3.895313096246593*^9}, 3.895313234050687*^9, 3.8953133037471933`*^9, {
+   3.895313342121664*^9, 3.895313396221348*^9}, {3.89531344058611*^9, 
+   3.8953134490388823`*^9}, {3.895313514183195*^9, 3.895313546066627*^9}, {
+   3.89531358595162*^9, 3.895313594808383*^9}, {3.895313641646534*^9, 
+   3.895313668813848*^9}, {3.895313734833447*^9, 3.895313777529571*^9}, {
+   3.895313818828676*^9, 3.895313867045376*^9}, {3.895313901183938*^9, 
+   3.895313965663537*^9}, {3.8953139977911043`*^9, 3.895314060933737*^9}, 
+   3.895314101000927*^9, 3.895314207710775*^9, {3.895314263288809*^9, 
+   3.8953142722167263`*^9}, 3.8953143325866327`*^9, {3.8953144030560293`*^9, 
+   3.895314434927359*^9}, {3.895320549548839*^9, 3.89532059209387*^9}, 
+   3.895320649365237*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"c7fb7db0-d26b-4bbf-8a25-7f495cff2984"],
+
+Cell[BoxData[
+ RowBox[{"{", "84.`", "}"}]], "Output",
+ CellChangeTimes->{{3.895312833554242*^9, 3.8953128336832*^9}, {
+   3.895313013184683*^9, 3.8953130338863153`*^9}, {3.895313074254348*^9, 
+   3.895313096246593*^9}, 3.895313234050687*^9, 3.8953133037471933`*^9, {
+   3.895313342121664*^9, 3.895313396221348*^9}, {3.89531344058611*^9, 
+   3.8953134490388823`*^9}, {3.895313514183195*^9, 3.895313546066627*^9}, {
+   3.89531358595162*^9, 3.895313594808383*^9}, {3.895313641646534*^9, 
+   3.895313668813848*^9}, {3.895313734833447*^9, 3.895313777529571*^9}, {
+   3.895313818828676*^9, 3.895313867045376*^9}, {3.895313901183938*^9, 
+   3.895313965663537*^9}, {3.8953139977911043`*^9, 3.895314060933737*^9}, 
+   3.895314101000927*^9, 3.895314207710775*^9, {3.895314263288809*^9, 
+   3.8953142722167263`*^9}, 3.8953143325866327`*^9, {3.8953144030560293`*^9, 
+   3.895314434927359*^9}, {3.895320549548839*^9, 3.89532059209387*^9}, 
+   3.8953206493662*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"ecc39fdd-0a3b-4d0f-a61d-d149ce53980c"],
+
+Cell[BoxData["\<\"Average Number of particles for energy levels 0-17:\"\>"], \
+"Print",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.895320592097106*^9, {3.89532064936733*^9, 
+   3.895320663005375*^9}},ExpressionUUID->"c22b6416-ac55-4ac0-a419-\
+314f6ff92679"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2.`", ",", "2.`", ",", "2.`", ",", "2.`", ",", "2.`", ",", "2.`", ",", 
+   "1.9047619047619047`", ",", "1.8095238095238095`", ",", 
+   "1.4761904761904763`", ",", "1.1904761904761905`", ",", 
+   "0.8095238095238095`", ",", "0.5238095238095238`", ",", 
+   "0.1904761904761905`", ",", "0.09523809523809525`", ",", "0.`", ",", "0.`",
+    ",", "0.`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.895312833554242*^9, 3.8953128336832*^9}, {
+   3.895313013184683*^9, 3.8953130338863153`*^9}, {3.895313074254348*^9, 
+   3.895313096246593*^9}, 3.895313234050687*^9, 3.8953133037471933`*^9, {
+   3.895313342121664*^9, 3.895313396221348*^9}, {3.89531344058611*^9, 
+   3.8953134490388823`*^9}, {3.895313514183195*^9, 3.895313546066627*^9}, {
+   3.89531358595162*^9, 3.895313594808383*^9}, {3.895313641646534*^9, 
+   3.895313668813848*^9}, {3.895313734833447*^9, 3.895313777529571*^9}, {
+   3.895313818828676*^9, 3.895313867045376*^9}, {3.895313901183938*^9, 
+   3.895313965663537*^9}, {3.8953139977911043`*^9, 3.895314060933737*^9}, 
+   3.895314101000927*^9, 3.895314207710775*^9, {3.895314263288809*^9, 
+   3.8953142722167263`*^9}, 3.8953143325866327`*^9, {3.8953144030560293`*^9, 
+   3.895314434927359*^9}, {3.895320549548839*^9, 3.89532059209387*^9}, 
+   3.895320649368235*^9},
+ CellLabel->"Out[46]=",ExpressionUUID->"c0d3a303-663e-4cc6-960d-162cf8299eb5"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.02], 
+    AbsoluteThickness[1.6], 
+    PointBox[{{1., 2.}, {2., 2.}, {3., 2.}, {4., 2.}, {5., 2.}, {6., 2.}, {7.,
+      1.9047619047619047`}, {8., 1.8095238095238095`}, {9., 
+     1.4761904761904763`}, {10., 1.1904761904761905`}, {11., 
+     0.8095238095238095}, {12., 0.5238095238095238}, {13., 
+     0.1904761904761905}, {14., 0.09523809523809525}, {15., 0.}, {16., 0.}, {
+     17., 0.}}]}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      TagBox["\"Average Number of Particles\"", HoldForm], TraditionalForm], 
+     None}, {
+     FormBox[
+      TagBox["\"Energy Level\"", HoldForm], TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{Automatic, Automatic},
+  GridLinesStyle->GrayLevel[0.85],
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.368417, 0.506779, 0.709798], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.880722, 0.611041, 0.142051], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.560181, 0.691569, 0.194885], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.922526, 0.385626, 0.209179], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.528488, 0.470624, 0.701351], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.772079, 0.431554, 0.102387], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.363898, 0.618501, 0.782349], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[1, 0.75, 0], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.647624, 0.37816, 0.614037], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.571589, 0.586483, 0.], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.915, 0.3325, 0.2125], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.9728288904374106, 0.621644452187053, 0.07336199581899142], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.736782672705901, 0.358, 0.5030266573755369], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965], 
+       AbsoluteThickness[1.6]]}, "DomainPadding" -> Scaled[0.02], 
+    "PointSizeFunction" -> "SmallPointSize", "RangePadding" -> Scaled[0.05], 
+    "OptimizePlotMarkers" -> True, "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Average Number of Particles vs. Energy Levels\"", TraditionalForm],
+  PlotRange->{{0, 17.}, {0, 2.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.895312833554242*^9, 3.8953128336832*^9}, {
+   3.895313013184683*^9, 3.8953130338863153`*^9}, {3.895313074254348*^9, 
+   3.895313096246593*^9}, 3.895313234050687*^9, 3.8953133037471933`*^9, {
+   3.895313342121664*^9, 3.895313396221348*^9}, {3.89531344058611*^9, 
+   3.8953134490388823`*^9}, {3.895313514183195*^9, 3.895313546066627*^9}, {
+   3.89531358595162*^9, 3.895313594808383*^9}, {3.895313641646534*^9, 
+   3.895313668813848*^9}, {3.895313734833447*^9, 3.895313777529571*^9}, {
+   3.895313818828676*^9, 3.895313867045376*^9}, {3.895313901183938*^9, 
+   3.895313965663537*^9}, {3.8953139977911043`*^9, 3.895314060933737*^9}, 
+   3.895314101000927*^9, 3.895314207710775*^9, {3.895314263288809*^9, 
+   3.8953142722167263`*^9}, 3.8953143325866327`*^9, {3.8953144030560293`*^9, 
+   3.895314434927359*^9}, {3.895320549548839*^9, 3.89532059209387*^9}, 
+   3.895320649394472*^9},
+ CellLabel->"Out[47]=",ExpressionUUID->"e90729fc-a08f-4973-9242-03eb78d1d812"]
+}, Open  ]]
+},
+WindowSize->{1440, 872},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "Users", "ethan", 
+   "Library", "Mathematica", "SystemFiles", "FrontEnd", "StyleSheets"}, 
+  "DraculaFixed.nb", CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"6b26a7a9-94f2-4691-a3de-3e5c0c15acf5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4734, 112, 698, "Code",ExpressionUUID->"abe6f90d-5a2c-4fa4-8c56-f569e04b02cc"],
+Cell[5317, 136, 1029, 15, 42, "Output",ExpressionUUID->"c7fb7db0-d26b-4bbf-8a25-7f495cff2984"],
+Cell[6349, 153, 1029, 15, 42, "Output",ExpressionUUID->"ecc39fdd-0a3b-4d0f-a61d-d149ce53980c"],
+Cell[7381, 170, 288, 7, 29, "Print",ExpressionUUID->"c22b6416-ac55-4ac0-a419-314f6ff92679"],
+Cell[7672, 179, 1387, 22, 42, "Output",ExpressionUUID->"c0d3a303-663e-4cc6-960d-162cf8299eb5"],
+Cell[9062, 203, 4756, 114, 334, "Output",ExpressionUUID->"e90729fc-a08f-4973-9242-03eb78d1d812"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

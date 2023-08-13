@@ -1,0 +1,1276 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     45752,       1266]
+NotebookOptionsPosition[     44785,       1242]
+NotebookOutlinePosition[     45347,       1260]
+CellTagsIndexPosition[     45304,       1257]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Unprotect", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "h", ",", "\[HBar]", ",", "R", ",", " ", "c", ",", "\[Mu]0", ",", "k", 
+      ",", "q", ",", "\[Epsilon]0", ",", "\[Eta]0", ",", "K", ",", "mK", ",", 
+      "\[Mu]K", ",", "nK", ",", "km", ",", "m", ",", "cm", ",", "mm", ",", 
+      "\[Mu]m", ",", "nm", ",", "pm", ",", "W", ",", "nW", ",", "\[Mu]W", ",",
+       "mW", ",", "kW", ",", "MW", ",", "GW", ",", "TW", ",", "J", ",", "mJ", 
+      ",", "\[Mu]J", ",", "nJ", ",", "pJ", ",", "fJ", ",", "aJ", ",", "zJ", 
+      ",", "kJ", ",", "kWh", ",", "MWh", ",", "GWh", ",", "TWh", ",", "A", 
+      ",", "mA", ",", "\[Mu]A", ",", "nA", ",", "pA", ",", "fA", ",", "V", 
+      ",", "mV", ",", "\[Mu]V", ",", "nV", ",", "kV", ",", "MV", ",", "GV", 
+      ",", "\[CapitalOmega]", ",", "m\[CapitalOmega]", ",", 
+      "k\[CapitalOmega]", ",", "M\[CapitalOmega]", ",", "G\[CapitalOmega]", 
+      ",", "T\[CapitalOmega]", ",", "S", ",", "mS", ",", "F", ",", "mF", ",", 
+      "\[Mu]F", ",", "uF", ",", "nF", ",", "pF", ",", "fF", ",", "Hz", ",", 
+      "mHz", ",", "kHz", ",", "MHz", ",", "GHz", ",", "THz", ",", "s", ",", 
+      "ms", ",", "\[Mu]s", ",", "ns", ",", "ps", ",", "fs", ",", "eV", ",", 
+      "meV", ",", "keV", ",", "MeV", ",", "GeV", ",", "TeV", ",", "min", ",", 
+      "hr", ",", "day", ",", "month", ",", "Pa", ",", "kPa", ",", "GPa", ",", 
+      "atm", ",", " ", "g", ",", "kg", ",", "mg", ",", "\[Mu]g", ",", "ng", 
+      ",", "pg", ",", "\[Angstrom]", ",", "rad", ",", "\[Degree]", ",", "deg",
+       ",", "H", ",", "mH", ",", "\[Mu]H", ",", "nH", ",", "pH", ",", "ft", 
+      ",", "in", ",", "erg", ",", "T", ",", "mT", ",", "\[Mu]T", ",", "nT", 
+      ",", "ppm", ",", "ppb", ",", "pW", ",", "fW", ",", "\[Mu]rad", ",", 
+      "mrad", ",", " ", "lux", ",", " ", "lumen", ",", " ", "BTU", ",", " ", 
+      "Fh", ",", "psi", ",", "C", ",", "mC", ",", "\[Mu]C", ",", "nC", ",", 
+      "pC", ",", "fC", ",", "cmH2O", ",", "mmH2O", ",", "L", ",", "scfm", ",",
+       "sccm", ",", "inH2O", ",", "mp", ",", "yr", ",", "NAv", ",", "mol", 
+      ",", " ", "gal", ",", "mph", ",", "arcmin", ",", "\[Mu]in", ",", "oz", 
+      ",", "Sv", ",", "mSv", ",", "\[Mu]Sv", ",", "nSv"}], "}"}], "]"}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"First", ",", " ", 
+    RowBox[{
+     RowBox[{
+     "define", " ", "fundamental", " ", "physical", " ", "constants", " ", 
+      "using", " ", 
+      RowBox[{"Mathematica", "'"}], "s", " ", "built"}], "-", 
+     RowBox[{"in", " ", "knowledgebase"}]}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"h", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", "\"\<PlanckConstant\>\"", "]"}], ",", 
+     "\"\<Electronvolts Seconds\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[HBar]", "=", 
+   FractionBox["h", 
+    RowBox[{"2", "\[Pi]"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", "\"\<MolarGasConstant\>\"", "]"}], ",", " ", 
+     RowBox[{"J", " ", 
+      SuperscriptBox["mol", 
+       RowBox[{"-", "1"}]], " ", 
+      SuperscriptBox["K", 
+       RowBox[{"-", "1"}]]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], ",", 
+     "\"\<Meters per Seconds\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]0", "=", 
+   RowBox[{"Quantity", "[", "\"\<VacuumPermeability\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", 
+   RowBox[{"Quantity", "[", "\"\<BoltzmannConstant\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m0", "=", 
+   RowBox[{"Quantity", "[", "\"\<ElectronMass\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mp", "=", 
+   RowBox[{"Quantity", "[", "\"\<ProtonMass\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q", "=", 
+   RowBox[{"Quantity", "[", "\"\<ElectronCharge\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Epsilon]0", "=", 
+    RowBox[{"Quantity", "[", "\"\<VacuumPermittivity\>\"", "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NAv", "=", 
+    RowBox[{"6.022", "*", 
+     SuperscriptBox["10", "23"]}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Avogadro", "'"}], "s", " ", "number"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mol", " ", "=", " ", 
+   RowBox[{"Quantity", "[", "\"\<Moles\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Sigma]", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"2", 
+        SuperscriptBox["\[Pi]", "5"], " ", 
+        SuperscriptBox["k", "4"]}], 
+       RowBox[{"15", 
+        SuperscriptBox["c", "2"], 
+        SuperscriptBox["h", "3"]}]], ",", 
+      RowBox[{
+       RowBox[{"mW", "/", 
+        SuperscriptBox["\[Mu]m", "2"]}], "/", 
+       SuperscriptBox["K", "4"]}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Stefan", "-", 
+    RowBox[{"boltzmann", " ", "constant"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Eta]0", "=", 
+    SqrtBox[
+     FractionBox["\[Mu]0", "\[Epsilon]0"]]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Wave", " ", "impedance", " ", "of", " ", "free", " ", "space"}], 
+   " ", "*)"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"K", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Kelvins\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mK", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millikelvins\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]K", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microkelvins\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nK", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanokelvins\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"gal", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Gallons\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BTU", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<BTU\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"Fh", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<DegreesFahrenheit\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"km", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Meters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cm", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Centimeters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dm", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Decimeters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mm", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Millimeters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]m", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Microns\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nm", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Nanometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pm", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mil", " ", "=", " ", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Mils\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"in", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Inches\>\""}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Die", ",", " ", 
+    RowBox[{"imperial", " ", "units"}], ",", " ", "die"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ft", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Feet\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"W", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Watts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Femtowatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picowatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanowatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]W", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microwatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliwatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilowatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megawatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GW", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Gigawatts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TW", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Terawatts\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lux", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Lux\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"lumen", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Lumens\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"J", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Joules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millijoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]J", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microjoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanojoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picojoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Femtojoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"aJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Attojoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zJ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Zeptojoules\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"kJ", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Kilojoules\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kWh", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"\"\<Kilowatts\>\"", "*", "\"\<Hours\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MWh", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"\"\<Megawatts\>\"", "*", "\"\<Hours\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GWh", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"\"\<Gigawatts\>\"", "*", "\"\<Hours\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TWh", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", 
+      RowBox[{"\"\<Terawatts\>\"", "*", "\"\<Hours\>\""}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Amperes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mA", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliamperes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]A", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microamperes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nA", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanoamperes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pA", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picoamperes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fA", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Femtoamperes\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Coulombs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mC", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millicoulombs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]C", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microcoulombs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nC", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanocoulombs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pC", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picocoulombs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fC", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Femtocoulombs\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"V", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Volts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millivolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]V", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanovolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilovolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megavolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GV", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Gigavolts\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Teslas\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mT", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliteslas\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]T", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microteslas\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nT", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Nanoteslas\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalOmega]", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Ohms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m\[CapitalOmega]", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliohms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k\[CapitalOmega]", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kiloohms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"M\[CapitalOmega]", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megaohms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G\[CapitalOmega]", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Gigaohms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T\[CapitalOmega]", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Teraohms\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Siemens\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mS", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Millisiemens\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Farads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mF", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millifarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]F", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microfarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"uF", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microfarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nF", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanofarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pF", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picofarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fF", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Femtofarads\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aF", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Attofarads\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Henries\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mH", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millihenries\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]H", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microhenries\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nH", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanohenries\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pH", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Picohenries\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Hz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Hertz\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mHz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millihertz\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kHz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilohertz\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MHz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megahertz\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GHz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Gigahertz\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"THz", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Terahertz\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Seconds\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ms", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliseconds\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]s", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Microseconds\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ns", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanoseconds\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ps", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Picoseconds\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fs", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Femtoseconds\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Electronvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"meV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millielectronvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"keV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kiloelectronvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MeV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megaelectronvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GeV", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Gigaelectronvolts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TeV", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Teraelectronvolts\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"min", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Minutes\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hr", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Hours\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"day", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Days\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"month", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Months\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"yr", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Years\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Pa", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Pascals\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kPa", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilopascals\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MPa", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Megapascals\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GPa", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Gigapascals\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"atm", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<StandardAtmosphere\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"psi", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<PSI\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mN", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millinewtons\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]N", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Micronewtons\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nN", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanonewtons\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kN", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Kilonewtons\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MN", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Meganewtons\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ne", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Newtons\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mbar", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millibars\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bar", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Bars\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Torr", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Torrs\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mTorr", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Millitorrs\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Liters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mL", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliliters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]L", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microliters\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nL", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Nanoliters\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mM", "=", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "3"}]], "*", "6.022", "*", 
+    RowBox[{
+     SuperscriptBox["10", "23"], "/", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"1", ",", "\"\<Liters\>\""}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]M", "=", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]], "*", "6.022", "*", 
+    RowBox[{
+     SuperscriptBox["10", "23"], "/", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"1", ",", "\"\<Liters\>\""}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nM", "=", 
+    RowBox[{
+     SuperscriptBox["10", 
+      RowBox[{"-", "9"}]], "*", "6.022", "*", 
+     RowBox[{
+      SuperscriptBox["10", "23"], "/", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<Liters\>\""}], "]"}]}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G0", "=", 
+    FractionBox[
+     SuperscriptBox["q", "2"], 
+     RowBox[{"4", " ", "\[HBar]"}]]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Optical", " ", "conductance"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"a0", "=", 
+    RowBox[{"Quantity", "[", "\"\<BohrRadius\>\"", "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Bohr", " ", "Radius"}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", "=", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"Quantity", "[", "\"\<GravitationalConstant\>\"", "]"}], "*", 
+       RowBox[{"Quantity", "[", "\"\<EarthMass\>\"", "]"}]}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"Quantity", "[", "\"\<EarthRadius\>\"", "]"}], ")"}], "2"]], "//",
+      "UnitSimplify"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Unfortunate", " ", "this", " ", "unit", " ", "has", " ", "the", " ", 
+    "same", " ", "as", " ", "the", " ", "physical", " ", "constant"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Grams\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kg", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Kilograms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mg", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Milligrams\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]g", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", " ", "\"\<Micrograms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ng", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Nanograms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pg", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Picograms\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Angstrom]", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"0.1", ",", " ", "\"\<Nanometers\>\""}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "I", " ", "refuse", " ", "to", " ", "use", " ", "Angstroms", " ", "on", 
+    " ", "principle"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rad", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Radians\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mrad", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Milliradians\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]rad", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microradians\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"deg", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Degrees\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Degree]", "=", "deg"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"erg", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "7"}]], ",", "\"\<Joules\>\""}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Who", " ", "thought", " ", "this", " ", "unit", " ", "was", " ", "a", " ",
+     "good", " ", "idea", "??"}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ppm", "=", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"part", " ", "per", " ", "million"}], ",", " ", 
+    RowBox[{"a", " ", "unitless", " ", "unit"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ppb", "=", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "9"}]]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"part", " ", "per", " ", "billion"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mmH2O", "=", 
+   RowBox[{"Quantity", "[", "\"\<MillimeterWater\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cmH2O", "=", 
+   RowBox[{"Quantity", "[", "\"\<CentimeterWater\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inH2O", "=", 
+   RowBox[{"Quantity", "[", "\"\<InchesWater\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sccm", "=", 
+   RowBox[{
+    SuperscriptBox["cm", "3"], "/", "min"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"scfm", "=", 
+   RowBox[{
+    SuperscriptBox["ft", "3"], "/", "min"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mph", "=", 
+   RowBox[{
+    RowBox[{"Quantity", "[", "\"\<Miles\>\"", "]"}], "/", 
+    RowBox[{"Quantity", "[", "\"\<Hours\>\"", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"arcmin", "=", 
+   RowBox[{"Quantity", "[", "\"\<ArcMinutes\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]in", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microinches\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oz", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<OuncesForce\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Sv", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Sieverts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mSv", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Millisieverts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]Sv", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"1", ",", "\"\<Microsieverts\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nSv", "=", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<Nanosieverts\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FourierTransformEE", "[", "args__", "]"}], ":=", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"2", "\[Pi]"}]], 
+   RowBox[{
+   "FourierTransform", "[", "args", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InverseFourierTransformEE", "[", "args__", "]"}], ":=", 
+  RowBox[{
+   FractionBox["1", 
+    SqrtBox[
+     RowBox[{"2", "\[Pi]"}]]], 
+   RowBox[{
+   "InverseFourierTransform", "[", "args", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Protect", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "h", ",", "\[HBar]", ",", "R", ",", " ", "c", ",", "\[Mu]0", ",", "k", 
+     ",", "q", ",", "\[Epsilon]0", ",", "\[Eta]0", ",", "K", ",", "mK", ",", 
+     "\[Mu]K", ",", "nK", ",", "km", ",", "m", ",", "cm", ",", "mm", ",", 
+     "\[Mu]m", ",", "nm", ",", "pm", ",", "W", ",", "nW", ",", "\[Mu]W", ",", 
+     "mW", ",", "kW", ",", "MW", ",", "GW", ",", "TW", ",", "J", ",", "mJ", 
+     ",", "\[Mu]J", ",", "nJ", ",", "pJ", ",", "fJ", ",", "aJ", ",", "zJ", 
+     ",", "kJ", ",", "kWh", ",", "MWh", ",", "GWh", ",", "TWh", ",", "A", ",",
+      "mA", ",", "\[Mu]A", ",", "nA", ",", "pA", ",", "fA", ",", "V", ",", 
+     "mV", ",", "\[Mu]V", ",", "nV", ",", "kV", ",", "MV", ",", "GV", ",", 
+     "\[CapitalOmega]", ",", "m\[CapitalOmega]", ",", "k\[CapitalOmega]", ",",
+      "M\[CapitalOmega]", ",", "G\[CapitalOmega]", ",", "T\[CapitalOmega]", 
+     ",", "S", ",", "mS", ",", "F", ",", "mF", ",", "\[Mu]F", ",", "uF", ",", 
+     "nF", ",", "pF", ",", "fF", ",", "Hz", ",", "mHz", ",", "kHz", ",", 
+     "MHz", ",", "GHz", ",", "THz", ",", "s", ",", "ms", ",", "\[Mu]s", ",", 
+     "ns", ",", "ps", ",", "fs", ",", "eV", ",", "meV", ",", "keV", ",", 
+     "MeV", ",", "GeV", ",", "TeV", ",", "min", ",", "hr", ",", "day", ",", 
+     "month", ",", "Pa", ",", "kPa", ",", "GPa", ",", "atm", ",", " ", "g", 
+     ",", "kg", ",", "mg", ",", "\[Mu]g", ",", "ng", ",", "pg", ",", 
+     "\[Angstrom]", ",", "rad", ",", "\[Degree]", ",", "deg", ",", "H", ",", 
+     "mH", ",", "\[Mu]H", ",", "nH", ",", "pH", ",", "ft", ",", "in", ",", 
+     "erg", ",", "T", ",", "mT", ",", "\[Mu]T", ",", "nT", ",", "ppm", ",", 
+     "ppb", ",", "pW", ",", "fW", ",", "\[Mu]rad", ",", "mrad", ",", " ", 
+     "lux", ",", " ", "lumen", ",", " ", "BTU", ",", " ", "Fh", ",", "psi", 
+     ",", "C", ",", "mC", ",", "\[Mu]C", ",", "nC", ",", "pC", ",", "fC", ",",
+      "cmH2O", ",", "mmH2O", ",", "L", ",", "scfm", ",", "sccm", ",", "inH2O",
+      ",", "mp", ",", "yr", ",", "NAv", ",", "mol", ",", " ", "gal", ",", 
+     "mph", ",", "arcmin", ",", "\[Mu]in", ",", "oz", ",", "Sv", ",", "mSv", 
+     ",", "\[Mu]Sv", ",", "nSv"}], "}"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.76363596603362*^9, 3.7636361692075367`*^9}, {
+   3.763636201939198*^9, 3.763636245407072*^9}, {3.7636397565003023`*^9, 
+   3.7636397618033333`*^9}, {3.763644489736477*^9, 3.763644509910213*^9}, {
+   3.763644731221819*^9, 3.763644797919105*^9}, {3.763669603206648*^9, 
+   3.7636696146805677`*^9}, {3.763672228460054*^9, 3.763672271696711*^9}, {
+   3.763674434210774*^9, 3.7636744734556103`*^9}, {3.763674537286173*^9, 
+   3.7636745724514847`*^9}, {3.763674746562223*^9, 3.76367479857778*^9}, {
+   3.763674859592762*^9, 3.763674906036372*^9}, {3.76367521013645*^9, 
+   3.763675239022661*^9}, {3.7637263990165167`*^9, 3.76372641484625*^9}, {
+   3.763729704534931*^9, 3.7637297067753067`*^9}, {3.763898439323142*^9, 
+   3.7638984460092564`*^9}, 3.76389884528015*^9, {3.7639823397880044`*^9, 
+   3.7639823488038836`*^9}, {3.763982407677388*^9, 3.7639826650588374`*^9}, {
+   3.764962327255045*^9, 3.764962364904125*^9}, {3.764967496796747*^9, 
+   3.764967523461152*^9}, {3.7650497516274242`*^9, 3.765049786119471*^9}, {
+   3.765546652871101*^9, 3.7655467126627817`*^9}, {3.765630003116201*^9, 
+   3.765630077286483*^9}, {3.7656332554634047`*^9, 3.7656332685265093`*^9}, {
+   3.765662275992641*^9, 3.765662309741642*^9}, {3.76624463607845*^9, 
+   3.766244751549815*^9}, {3.766245089893869*^9, 3.766245112219458*^9}, {
+   3.766263908444475*^9, 3.766263959084057*^9}, {3.766321486883993*^9, 
+   3.7663215181626253`*^9}, 3.76634143736924*^9, {3.76662601216895*^9, 
+   3.766626021666551*^9}, {3.767981003570565*^9, 3.767981019686891*^9}, {
+   3.768233796235114*^9, 3.7682338222509193`*^9}, {3.768234247164879*^9, 
+   3.768234257390473*^9}, {3.768306498518734*^9, 3.7683065588046136`*^9}, {
+   3.768307775063348*^9, 3.7683077803980885`*^9}, {3.76830944716518*^9, 
+   3.7683094807284875`*^9}, 3.768319273710231*^9, {3.7683193196013203`*^9, 
+   3.768319323614703*^9}, {3.768319685379354*^9, 3.768319886041885*^9}, {
+   3.768319977911181*^9, 3.7683199783568993`*^9}, {3.768407838843112*^9, 
+   3.7684078489473267`*^9}, {3.768407882743991*^9, 3.768407956929255*^9}, {
+   3.768507804719293*^9, 3.7685078415166903`*^9}, {3.768582620312788*^9, 
+   3.768582627132474*^9}, {3.7685826581165*^9, 3.768582673753688*^9}, {
+   3.768582705606161*^9, 3.768582718131109*^9}, {3.768582877797573*^9, 
+   3.768582881169669*^9}, {3.768588156648061*^9, 3.768588173128914*^9}, {
+   3.768588496527576*^9, 3.768588510312024*^9}, {3.76874528460605*^9, 
+   3.768745327193388*^9}, {3.768745366996369*^9, 3.768745373763008*^9}, {
+   3.7692822798280478`*^9, 3.769282287021983*^9}, {3.769966242785928*^9, 
+   3.7699663031903887`*^9}, {3.7703902415112753`*^9, 
+   3.7703902649005957`*^9}, {3.7704723962859583`*^9, 3.770472516093607*^9}, {
+   3.770551104992012*^9, 3.77055113161279*^9}, {3.771585870314747*^9, 
+   3.771585887311293*^9}, {3.77418161124323*^9, 3.774181616901721*^9}, {
+   3.775063087926787*^9, 3.7750631124866877`*^9}, {3.776023117269053*^9, 
+   3.7760231643125973`*^9}, {3.776523291826583*^9, 3.776523328711273*^9}, {
+   3.777671558232163*^9, 3.777671570844323*^9}, {3.7791130369207973`*^9, 
+   3.779113049981002*^9}, {3.779114917165988*^9, 3.779114937506908*^9}, {
+   3.77971223184234*^9, 3.779712262566718*^9}, {3.779810024539624*^9, 
+   3.779810026393512*^9}, {3.7800580676608973`*^9, 3.780058136168251*^9}, {
+   3.78084584513693*^9, 3.7808458459670267`*^9}, {3.781386872725011*^9, 
+   3.78138690771111*^9}, {3.7815265862089233`*^9, 3.781526629750149*^9}, {
+   3.781526660749642*^9, 3.781526696384623*^9}, {3.7827406972578707`*^9, 
+   3.7827407100026817`*^9}, {3.783372071782035*^9, 3.783372081244648*^9}, {
+   3.7874968742419243`*^9, 3.787496875443564*^9}, {3.7874969359441967`*^9, 
+   3.787497000680895*^9}, {3.7875014037306843`*^9, 3.7875014401169987`*^9}, {
+   3.792089463557151*^9, 3.792089493076358*^9}, {3.7925316066750507`*^9, 
+   3.792531639709807*^9}, {3.792531677346463*^9, 3.7925316853051977`*^9}, {
+   3.794872355866852*^9, 3.794872380038046*^9}, {3.7948724454264917`*^9, 
+   3.7948724586417933`*^9}, {3.7949161269415293`*^9, 
+   3.7949161660858717`*^9}, {3.795453547467403*^9, 3.795453553964777*^9}, {
+   3.795611629479244*^9, 3.7956116468031693`*^9}, {3.796583456568102*^9, 
+   3.79658346949692*^9}, {3.7969962448584433`*^9, 3.796996264855579*^9}, {
+   3.7977730576564827`*^9, 3.797773093151297*^9}, {3.7977825554846287`*^9, 
+   3.797782567246545*^9}, {3.79779607062706*^9, 3.797796098143221*^9}, {
+   3.797797419249879*^9, 3.797797437838153*^9}, {3.797861077595088*^9, 
+   3.797861092898571*^9}, {3.797955995859028*^9, 3.797956011215109*^9}, {
+   3.798318020126978*^9, 3.798318021929734*^9}, {3.798326375355822*^9, 
+   3.798326391020639*^9}, {3.79900570324617*^9, 3.799005704586108*^9}, {
+   3.8038397226967*^9, 3.803839759860476*^9}, {3.803923398105336*^9, 
+   3.803923432647924*^9}, {3.8059185412203407`*^9, 3.805918627191968*^9}, 
+   3.810658315447268*^9, {3.8112419747240047`*^9, 3.8112419808837852`*^9}, {
+   3.817086749125148*^9, 3.817086789470636*^9}, {3.819553789112666*^9, 
+   3.819553817836532*^9}, {3.821093776084899*^9, 3.821093805380189*^9}, {
+   3.821093892092589*^9, 3.821093918862832*^9}, {3.8229156161579237`*^9, 
+   3.822915737527637*^9}, {3.900526498051899*^9, 3.9005265915700693`*^9}, {
+   3.900531444877964*^9, 3.900531491654539*^9}, {3.900531531151681*^9, 
+   3.900531532164155*^9}, {3.900531583526538*^9, 3.9005316268539*^9}, {
+   3.900531675519683*^9, 3.9005317700985527`*^9}, {3.900531854782012*^9, 
+   3.900531856250394*^9}, {3.900531889075519*^9, 3.900531892755892*^9}, {
+   3.900531957932432*^9, 3.900531959452273*^9}, {3.900531996553584*^9, 
+   3.900532005412037*^9}, {3.900532041222783*^9, 3.900532080131358*^9}, {
+   3.900532187349709*^9, 3.9005323391892157`*^9}, {3.900532379911002*^9, 
+   3.900532388681508*^9}, 3.900533432732951*^9},
+ CellLabel->
+  "In[1825]:=",ExpressionUUID->"bfd975a0-6007-482b-8eb4-5bd74471b530"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{"R", ",", " ", 
+    RowBox[{"L", " ", "atm", " ", 
+     SuperscriptBox["mol", 
+      RowBox[{"-", "1"}]], 
+     SuperscriptBox["K", 
+      RowBox[{"-", "1"}]]}]}], "]"}], "]"}]], "Code",
+ CellChangeTimes->{
+  3.900526895405768*^9, {3.900531428769853*^9, 3.90053142908458*^9}, {
+   3.900531501944138*^9, 3.900531558681603*^9}, {3.90053177521262*^9, 
+   3.900531775890655*^9}, {3.90053181154342*^9, 3.9005318298609047`*^9}, {
+   3.900531949071478*^9, 3.900531951666091*^9}, {3.9005323992679567`*^9, 
+   3.900532433035118*^9}},
+ CellLabel->
+  "In[2009]:=",ExpressionUUID->"e8e37591-735c-43b4-aee6-2bef69a3c437"],
+
+Cell[BoxData[
+ TemplateBox[{"0.08205736608095969`", 
+   RowBox[{
+    "\"L\"", "\[ThinSpace]", "\"standard atmosphere\"", "\[InvisibleSpace]", 
+     "\"/(\"", "\[InvisibleSpace]", "\"K\"", "\[ThinSpace]", "\"mol\"", 
+     "\[InvisibleSpace]", "\")\""}], 
+   "liter standard atmosphere per kelvin mole", 
+   FractionBox[
+    RowBox[{"\"Liters\"", " ", "\"StandardAtmosphere\""}], 
+    RowBox[{"\"Kelvins\"", " ", "\"Moles\""}]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.900526895934679*^9, 3.900531429402247*^9, {3.900531487220035*^9, 
+   3.900531503516891*^9}, 3.9005315482962017`*^9, 3.900531630627714*^9, {
+   3.900531772576433*^9, 3.900531776134245*^9}, 3.900531814837757*^9, 
+   3.900531952224793*^9, 3.900532018170644*^9, 3.9005322194242973`*^9, {
+   3.900532395606921*^9, 3.900532399497575*^9}, 3.9005324345625467`*^9},
+ CellLabel->
+  "Out[2009]=",ExpressionUUID->"b9267fa4-2a76-4218-ab7a-59f87bbf41ce"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$InstallationDirectory"], "Code",
+ CellChangeTimes->{
+  3.900532546968316*^9, {3.900532711453129*^9, 
+   3.90053271205898*^9}},ExpressionUUID->"e9659bef-dbbe-4155-b9fe-\
+db5b6297cc92"],
+
+Cell[BoxData["\<\"/Applications/Mathematica.app/Contents\"\>"], "Output",
+ CellChangeTimes->{3.9005325477094793`*^9},
+ CellLabel->
+  "Out[2010]=",ExpressionUUID->"0d55a99b-f62d-4a2d-bbb1-34bd31c54ec0"]
+}, Open  ]]
+},
+WindowSize->{808, 772},
+WindowMargins->{{211, Automatic}, {Automatic, 44}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "Users", "ethan", 
+   "Library", "Mathematica", "SystemFiles", "FrontEnd", "StyleSheets"}, 
+  "DraculaFixed.nb", CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"3efb83bd-5fe8-4588-85e3-41dccf5fa63f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 42142, 1165, 6820, "Input",ExpressionUUID->"bfd975a0-6007-482b-8eb4-5bd74471b530"],
+Cell[CellGroupData[{
+Cell[42725, 1189, 684, 16, 72, "Code",ExpressionUUID->"e8e37591-735c-43b4-aee6-2bef69a3c437"],
+Cell[43412, 1207, 918, 18, 47, "Output",ExpressionUUID->"b9267fa4-2a76-4218-ab7a-59f87bbf41ce"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44367, 1230, 198, 4, 69, "Code",ExpressionUUID->"e9659bef-dbbe-4155-b9fe-db5b6297cc92"],
+Cell[44568, 1236, 201, 3, 42, "Output",ExpressionUUID->"0d55a99b-f62d-4a2d-bbb1-34bd31c54ec0"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
